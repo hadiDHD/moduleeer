@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.module.eer.project</groupId>
+    <artifactId>org.module.eer.project.bundles</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.module.eer.project</groupId>
+        <artifactId>org.module.eer.project.root</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modules>
+        <module>org.module.eer.mm</module>  
+        <module>org.module.eer.mm.edit</module>  
+        <module>org.module.eer.mm.editor</module>  
+        <module>org.jenetics.libraryr6.2.0</module> 
+        <module>org.module.eer.design</module>  
+        <module>org.module.eer.jenetics</module>  
+        <module>org.module.eer.jenetics.utils</module>
+        <module>org.module.eer.jenetics.linked.list</module> 
+        <module>org.module.eer.samples</module> 
+        <module>org.module.eer.project.rcp</module>   
+  </modules>
+</project>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="org.module.eer.design.Activator"
+               id="org.module.eer.design"
+	       name="eer">
+    </component>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="org.module.eer.design.action.menu.SplitModuleAction"
+           id="module.eer.design.split.module">
+     </javaActions>
+     <javaActions
+           actionClass="org.module.eer.design.action.menu.LinkedListSplitAction"
+           id="module.eer.design.split.module.linkedlist.action">
+     </javaActions>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           class="org.module.eer.design.action.menu.MoveToModuleMenuContribution"
+           locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+     </menuContribution>
+  </extension>
+</plugin>

@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Samples
+Bundle-SymbolicName: org.module.eer.samples;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.module.eer.samples.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.common.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: org.module.eer.samples
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="org.module.eer.project.target">
+	<locations>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/eclipse/updates/4.14"/>
+			<unit id="org.eclipse.swt.tools.feature.feature.group" version="3.107.600.v20191004-1502"/>
+			<unit id="org.eclipse.equinox.sdk.feature.group" version="3.20.0.v20191122-2104"/>
+			<unit id="org.eclipse.rcp.feature.group" version="4.14.0.v20191210-0610"/>
+			<unit id="org.eclipse.sdk.ide" version="4.14.0.I20191210-0610"/>
+			<unit id="org.eclipse.platform.sdk" version="4.14.0.I20191210-0610"/>
+			<unit id="org.eclipse.platform.ide" version="4.14.0.I20191210-0610"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/releases/2019-12"/>
+			<unit id="org.eclipse.sirius.properties.feature.feature.group" version="6.3.0.201910180815"/>
+			<unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="6.3.0.201910180815"/>
+			<unit id="org.eclipse.sirius.samples.feature.group" version="6.3.0.201910180815"/>
+			<unit id="org.eclipse.sirius.specifier.feature.group" version="6.3.0.201910180815"/>
+			<unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="6.3.0.201910180815"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/releases/2019-12"/>
+			<unit id="org.eclipse.emf.sdk.feature.group" version="2.20.0.v20191028-0905"/>
+			<unit id="org.eclipse.equinox.sdk.feature.group" version="3.20.0.v20191122-2104"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository"/>
+			<unit id="org.apache.commons.math3" version="3.5.0.v20160301-1110"/>
+			<unit id="org.apache.commons.lang" version="2.6.0.v201404270220"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20190827152740/repository"/>
+			<unit id="org.apache.commons.csv" version="1.4.0.v20190617-1333"/>
+		</location>
+	</locations>
+</target>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.common.ui.examples">
+      <example
+            wizardID="org.module.eer.samples.FinanceExample">
+         <projectDescriptor
+               contentURI="samples/finance.sample/"
+               description="The Finance EER model"
+               name="finance.sample">
+         </projectDescriptor>
+      </example>
+      <example
+            wizardID="org.module.eer.samples.KarateSchoolExample">
+         <projectDescriptor
+               contentURI="samples/karate.school.sample/"
+               description="The Karate School EER model"
+               name="karate.school.sample">
+         </projectDescriptor>
+      </example>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.module.eer.samples.category"
+            name="ModulEER Examples"
+            parentCategory="org.eclipse.ui.Examples">
+      </category>
+      <wizard
+            category="org.eclipse.ui.Examples/org.module.eer.samples.category"
+            class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard"
+            icon="icons/finance-icon.png"
+            id="org.module.eer.samples.FinanceExample"
+            name="Finance EER diagram"
+            project="true">
+      </wizard>
+      <wizard
+            category="org.eclipse.ui.Examples/org.module.eer.samples.category"
+            class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard"
+            icon="icons/karate-school.png"
+            id="org.module.eer.samples.KarateSchoolExample"
+            name="Karate School EER diagram"
+            project="true">
+      </wizard>
+   </extension>
+
+</plugin>

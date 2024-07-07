@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="eer" version="12.0.0.2017041100">
+  <ownedViewpoints name="ModulEERViewpoint" modelFileExtension="moduleeer">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ModuleRepresentation" domainClass="moduleeer::Module" enablePopupBars="true">
+      <metamodel href="../../org.module.eer.mm/model/moduleeer.ecore#/"/>
+      <metamodel href="../../org.module.eer.mm/model/moduleeer.ecore#//subsystem"/>
+      <metamodel href="../../org.module.eer.mm/model/moduleeer.ecore#//procedure"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="RelationshipTypeNode" semanticCandidatesExpression="aql:self.modularizableElements" domainClass="moduleeer::RelationshipType">
+          <style xsi:type="style:LozengeNodeDescription" labelSize="12" showIcon="false" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Link" sourceMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetFinderExpression="aql:self.entity" sourceFinderExpression="aql:self.eContainer()" domainClass="moduleeer::LinkToEntity" useDomainElement="true">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:if (self.cardinality.toString().equals('ZERO_TO_ONE')) then '0..1' else  if (self.cardinality.toString().equals('ZERO_TO_MANY')) then '0..n' else if (self.cardinality.toString().equals('ONE_TO_ONE')) then '1..1' else if (self.cardinality.toString().equals('ONE_TO_MANY')) then '1..n' else 'No defined' endif endif endif endif">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer().eContainer().modularizableElements->includes(self.entity) = false">
+            <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:if (self.cardinality.toString().equals('ZERO_TO_ONE')) then '0..1' else  if (self.cardinality.toString().equals('ZERO_TO_MANY')) then '0..n' else if (self.cardinality.toString().equals('ONE_TO_ONE')) then '1..1' else if (self.cardinality.toString().equals('ONE_TO_MANY')) then '1..n' else 'No defined' endif endif endif endif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings name="GeneralizationEdge" sourceMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer']" targetMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer']" targetFinderExpression="aql:self.entity" sourceFinderExpression="aql:self.eContainer()" domainClass="moduleeer::Generalization" useDomainElement="true">
+          <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer().eContainer().modularizableElements->includes(self.entity) = false">
+            <style lineStyle="dash" targetArrow="InputClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <centerLabelStyleDescription labelSize="12">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings name="Aggregation" sourceMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetFinderExpression="aql:self.aggregations->collect(agg | agg.to)">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="RelationshipTypeToAttributes" sourceMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='RelationshipAttributes']" targetFinderExpression="aql:self">
+          <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12" showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="RelationshipInheritance" sourceMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetFinderExpression="aql:self.generalizes">
+          <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="EntityTypeContainer" semanticCandidatesExpression="aql:self.modularizableElements" domainClass="moduleeer::EntityType" childrenPresentation="List">
+          <subNodeMappings name="SingleAttributeNode" semanticCandidatesExpression="aql:self.attributes" domainClass="moduleeer::SingleAttribute">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name + ' : ' + self.type" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+            <conditionnalStyles predicateExpression="aql:self.isKey = true">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name + ' : ' + self.type" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>underline</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="RelationshipAttributes" semanticCandidatesExpression="aql:self.modularizableElements->select(modEle | modEle.oclIsTypeOf(moduleeer::RelationshipType) and modEle.attributes->size() > 0)" domainClass="moduleeer::RelationshipType" reusedNodeMappings="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer']/@subNodeMappings[name='SingleAttributeNode']" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="" hideLabelByDefault="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="ExternalEntityTypeContainer" semanticCandidatesExpression="aql:self.modularizableElements->select(ele | ele.oclIsTypeOf(moduleeer::RelationshipType))->collect(ele | ele.linksToEntities.entity)->select(ele | self.modularizableElements->includes(ele) = false)->union(self.modularizableElements->select(ele | ele.oclIsTypeOf(moduleeer::EntityType))->collect(entity | entity.generalizations.entity)->select(ele | self.modularizableElements->includes(ele) = false))" reusedNodeMappings="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer']/@subNodeMappings[name='SingleAttributeNode']" childrenPresentation="List" importedMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="3" borderLineStyle="dash" labelSize="12" showIcon="false">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+          </style>
+        </containerMappings>
+        <toolSections name="EER Tools">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreateEntityTypeContainer" label="Create Entity " containerMappings="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="moduleeer::EntityType" referenceName="modularizableElements"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Single Attribute" nodeMappings="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer']/@subNodeMappings[name='SingleAttributeNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="moduleeer::SingleAttribute" referenceName="attributes"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Create Relationship" edgeMappings="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@edgeMappings[name='Link']" iconPath="/org.module.eer.mm.edit/icons/full/obj16/RelationshipType.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="moduleeer::RelationshipType" referenceName="modularizableElements">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="moduleeer::LinkToEntity" referenceName="linksToEntities">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="entity" valueExpression="var:source"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="moduleeer::LinkToEntity" referenceName="linksToEntities">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="entity" valueExpression="var:target"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Create Generalization " edgeMappings="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@edgeMappings[name='GeneralizationEdge'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@edgeMappings[name='RelationshipInheritance']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Switch">
+                <cases conditionExpression="aql:source.oclIsKindOf(moduleeer::EntityType)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="moduleeer::Generalization" referenceName="generalizations">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="entity" valueExpression="var:target"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </cases>
+                <cases conditionExpression="aql:source.oclIsKindOf(moduleeer::RelationshipType)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="generalizes" valueExpression="var:target"/>
+                  </subModelOperations>
+                </cases>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Create Aggregation" edgeMappings="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@edgeMappings[name='Aggregation']" iconPath="/org.module.eer.mm.edit/icons/full/obj16/Aggregation.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="moduleeer::Aggregation" referenceName="aggregations">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="to" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:PopupMenu" name="ModulEERMenu" label="ModulEER">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Split the Module" precondition="aql:self.oclIsKindOf(moduleeer::Module)">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="SplitModule" id="module.eer.design.split.module">
+                  <parameters name="module" value="var:self"/>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Create Association" edgeMappings="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@edgeMappings[name='Link']" iconPath="/org.module.eer.mm.edit/icons/full/obj16/Association.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="moduleeer::LinkToEntity" referenceName="associations">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="entity" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers name="ProcedureLayer">
+        <containerMappings name="ProcedureContainer" semanticCandidatesExpression="aql:self" domainClass="moduleEER::Module" childrenPresentation="VerticalStack">
+          <subContainerMappings name="PrivateProcedureContainer" semanticCandidatesExpression="aql:self" domainClass="moduleEER::Module" childrenPresentation="List">
+            <subNodeMappings name="PrivateProcedureNode" semanticCandidatesExpression="aql:self.procedures->select(proc | proc.procedureType=procedure::ProcedureType::PRIVATE)" domainClass="procedure::Procedure">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:if (self.procedureType = procedure::ProcedureType::PRIVATE) then '- ' + self.name else if (self.procedureType = procedure::ProcedureType::PUBLIC) then '+ ' + self.name else ' ' endif endif" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" hideLabelByDefault="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="PublicProcedureContainer" semanticCandidatesExpression="aql:self" domainClass="moduleEER::Module" childrenPresentation="List">
+            <subNodeMappings name="PublicProcedureNode" semanticCandidatesExpression="aql:self.procedures->select(proc | proc.procedureType=procedure::ProcedureType::PUBLIC)" domainClass="procedure::Procedure">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:if (self.procedureType = procedure::ProcedureType::PRIVATE) then '- ' + self.name else if (self.procedureType = procedure::ProcedureType::PUBLIC) then '+ ' + self.name else ' ' endif endif" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" hideLabelByDefault="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="Procedures">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Procedure Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Procedure" nodeMappings="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@additionalLayers[name='ProcedureLayer']/@containerMappings[name='ProcedureContainer']/@subContainerMappings[name='PrivateProcedureContainer']/@subNodeMappings[name='PrivateProcedureNode'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@additionalLayers[name='ProcedureLayer']/@containerMappings[name='ProcedureContainer']/@subContainerMappings[name='PublicProcedureContainer']/@subNodeMappings[name='PublicProcedureNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="procedure::Procedure" referenceName="procedures"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ModulEERRepresentation" domainClass="moduleeer::MEERModel" enablePopupBars="true">
+      <metamodel href="../../org.module.eer.mm/model/moduleeer.ecore#/"/>
+      <metamodel href="../../org.module.eer.mm/model/moduleeer.ecore#//subsystem"/>
+      <metamodel href="../../org.module.eer.mm/model/moduleeer.ecore#//procedure"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="ModuleNode" semanticCandidatesExpression="aql:self.modules" domainClass="moduleeer::Module">
+          <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Module ' + self.name" labelPosition="node" resizeKind="NSEW" width="10" height="4">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings xsi:type="description_1:NodeMappingImport" name="RelationshipImport" semanticCandidatesExpression="aql:self.modules->closure(mod | mod.modularizableElements)" importedMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']"/>
+        <edgeMappings name="ModuleToEntity" sourceMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='ModuleNode']" targetMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipImport']" targetFinderExpression="aql:self.modularizableElements">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="EntityTypeImport" semanticCandidatesExpression="aql:self.modules->closure(mod | mod.modularizableElements)" importedMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" widthComputationExpression="10" heightComputationExpression="4">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="ModulEER tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Module" nodeMappings="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='ModuleNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="moduleeer::Module" referenceName="modules"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers name="CohesionRelationships" label="Cohesion Relationships">
+        <edgeMappings name="Link" preconditionExpression="aql:self.eContainer().eContainer().modularizableElements->includes(self.entity) = true" sourceMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetFinderExpression="aql:self.entity" sourceFinderExpression="aql:self.eContainer()" domainClass="moduleeer::LinkToEntity" useDomainElement="true">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:if (self.cardinality.toString().equals('ZERO_TO_ONE')) then '0..1' else  if (self.cardinality.toString().equals('ZERO_TO_MANY')) then '0..n' else if (self.cardinality.toString().equals('ONE_TO_ONE')) then '1..1' else if (self.cardinality.toString().equals('ONE_TO_MANY')) then '1..n' else 'No defined' endif endif endif endif">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </additionalLayers>
+      <additionalLayers name="CouplingRelationships" label="Coupling Relationships">
+        <edgeMappings name="Link" preconditionExpression="aql:self.eContainer().eContainer().modularizableElements->includes(self.entity) = false" sourceMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@nodeMappings[name='RelationshipTypeNode']" targetFinderExpression="aql:self.entity" sourceFinderExpression="aql:self.eContainer()" domainClass="moduleeer::LinkToEntity" useDomainElement="true">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:if (self.cardinality.toString().equals('ZERO_TO_ONE')) then '0..1' else  if (self.cardinality.toString().equals('ZERO_TO_MANY')) then '0..n' else if (self.cardinality.toString().equals('ONE_TO_ONE')) then '1..1' else if (self.cardinality.toString().equals('ONE_TO_MANY')) then '1..n' else 'No defined' endif endif endif endif">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="GeneralizationEdge" preconditionExpression="aql:self.eContainer().eContainer().modularizableElements->includes(self.entity) = false" sourceMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer']" targetMapping="//@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModulEERRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeImport'] //@ownedViewpoints[name='ModulEERViewpoint']/@ownedRepresentations[name='ModuleRepresentation']/@defaultLayer/@containerMappings[name='EntityTypeContainer']" targetFinderExpression="aql:self.entity" sourceFinderExpression="aql:self.eContainer()" domainClass="moduleeer::Generalization" useDomainElement="true">
+          <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.module.eer.design.Services"/>
+  </ownedViewpoints>
+</description:Group>

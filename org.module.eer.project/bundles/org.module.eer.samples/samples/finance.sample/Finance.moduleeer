@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moduleeer:MEERModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:moduleeer="http://moduleeer/1.0">
+  <modules name="M1">
+    <modularizableElements xsi:type="moduleeer:EntityType" name="FinancialRegulation" specializations="//@modules.0/@modularizableElements.4/@generalizations.0 //@modules.0/@modularizableElements.3/@generalizations.0" links="//@modules.0/@modularizableElements.2/@linksToEntities.0">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="FinancialRegulationID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Description"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Text"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="RegulationRequirement" links="//@modules.0/@modularizableElements.2/@linksToEntities.1 //@modules.0/@modularizableElements.6/@linksToEntities.0 //@modules.0/@modularizableElements.7/@linksToEntities.1">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="RegulationRequirementID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Description"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="basedOn">
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.0"/>
+      <linksToEntities cardinality="ONE_TO_ONE" entity="//@modules.0/@modularizableElements.1"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="GovernmentRegulation">
+      <generalizations entity="//@modules.0/@modularizableElements.0"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="OrganisationRegulation">
+      <generalizations entity="//@modules.0/@modularizableElements.0"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="FinancialProduct" links="//@modules.0/@modularizableElements.6/@linksToEntities.1 //@modules.0/@modularizableElements.7/@linksToEntities.0 //@modules.0/@modularizableElements.9/@linksToEntities.0 //@modules.0/@modularizableElements.24/@linksToEntities.0">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="FinancialProductID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Name"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="FinancialProductRequirement">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="FinancialProductRequirementID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:CompositeAttribute" name="FinancialProduct"/>
+      <attributes xsi:type="moduleeer:CompositeAttribute" name="RegulationRequirement"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.1"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.5"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="FinancialProductRule" generalizes="//@modules.0/@modularizableElements.6">
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.5"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.1"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.74"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="ProductCategory" specializations="//@modules.0/@modularizableElements.10/@generalizations.0 //@modules.0/@modularizableElements.11/@generalizations.0 //@modules.0/@modularizableElements.12/@generalizations.0 //@modules.0/@modularizableElements.13/@generalizations.0" links="//@modules.0/@modularizableElements.9/@linksToEntities.1">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="ProductCategoryID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Description"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="hasProductCategory">
+      <linksToEntities cardinality="ONE_TO_ONE" entity="//@modules.0/@modularizableElements.5"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.8"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="LoanProduct" specializations="//@modules.0/@modularizableElements.14/@generalizations.0 //@modules.0/@modularizableElements.15/@generalizations.0 //@modules.0/@modularizableElements.16/@generalizations.0 //@modules.0/@modularizableElements.17/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.8"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Lease">
+      <generalizations entity="//@modules.0/@modularizableElements.8"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="DepositProduct" specializations="//@modules.0/@modularizableElements.18/@generalizations.0 //@modules.0/@modularizableElements.19/@generalizations.0 //@modules.0/@modularizableElements.20/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.8"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="InvestmentVehicle" specializations="//@modules.0/@modularizableElements.21/@generalizations.0 //@modules.0/@modularizableElements.22/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.8"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="RevolvingProduct">
+      <generalizations entity="//@modules.0/@modularizableElements.10"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Loan">
+      <generalizations entity="//@modules.0/@modularizableElements.10"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Mortgage">
+      <generalizations entity="//@modules.0/@modularizableElements.10"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="EquityLine">
+      <generalizations entity="//@modules.0/@modularizableElements.10"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="TimeDeposit">
+      <generalizations entity="//@modules.0/@modularizableElements.12"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Checking">
+      <generalizations entity="//@modules.0/@modularizableElements.12"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Savings">
+      <generalizations entity="//@modules.0/@modularizableElements.12"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Annuity">
+      <generalizations entity="//@modules.0/@modularizableElements.13"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="MutualFund">
+      <generalizations entity="//@modules.0/@modularizableElements.13"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Account" specializations="//@modules.0/@modularizableElements.25/@generalizations.0 //@modules.0/@modularizableElements.26/@generalizations.0 //@modules.0/@modularizableElements.27/@generalizations.0 //@modules.0/@modularizableElements.28/@generalizations.0" links="//@modules.0/@modularizableElements.24/@linksToEntities.1 //@modules.0/@modularizableElements.41/@linksToEntities.1 //@modules.0/@modularizableElements.43/@linksToEntities.0 //@modules.0/@modularizableElements.52/@linksToEntities.0 //@modules.0/@modularizableElements.45/@linksToEntities.0">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Description"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="AccountProduct">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="From" type="DATE"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Through" type="DATE"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="FinancialProductAccount" type="INTEGER" isKey="true"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.5"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.23"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="DepositAccount" specializations="//@modules.0/@modularizableElements.30/@generalizations.0 //@modules.0/@modularizableElements.31/@generalizations.0 //@modules.0/@modularizableElements.32/@generalizations.0 //@modules.0/@modularizableElements.33/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.23"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="FinancialCardAccount" specializations="//@modules.0/@modularizableElements.29/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.23"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="LoanAccount" specializations="//@modules.0/@modularizableElements.34/@generalizations.0 //@modules.0/@modularizableElements.35/@generalizations.0 //@modules.0/@modularizableElements.36/@generalizations.0 //@modules.0/@modularizableElements.37/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.23"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="InvestmentVehicleAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.23"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="DebitCardAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.26"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="SavingsAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.25"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="CertificateOfDepositAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.25"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="MoneyMarketAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.25"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="CheckingAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.25"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="MortgageAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.27"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="VehicleLoanAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.27"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="InstallmentLoanAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.27"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="LineOfCreditAccount" specializations="//@modules.0/@modularizableElements.38/@generalizations.0 //@modules.0/@modularizableElements.39/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.27"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="CreditCardAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.37"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="EquityLineAccount">
+      <generalizations entity="//@modules.0/@modularizableElements.37"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="AccountStatusType" links="//@modules.0/@modularizableElements.41/@linksToEntities.0">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Description"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="AccountStatus">
+      <attributes xsi:type="moduleeer:CompositeAttribute" name="AccountStatusPK">
+        <attributes xsi:type="moduleeer:SingleAttribute" name="AccountStatusTypeID" type="INTEGER" isKey="true"/>
+        <attributes xsi:type="moduleeer:SingleAttribute" name="Number" type="INTEGER" isKey="true"/>
+        <attributes xsi:type="moduleeer:SingleAttribute" name="DateTime"/>
+      </attributes>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.40"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.23"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="AccountTransactionStatusType" links="//@modules.0/@modularizableElements.43/@linksToEntities.1 //@modules.0/@modularizableElements.53/@linksToEntities.1">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="AccountTransactionStatusTypeID" type="INTEGER" isKey="true"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="isConnected" generalizes="//@modules.0/@modularizableElements.45 //@modules.0/@modularizableElements.53">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="New attribute"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.23"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.42"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.51"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.44"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="AccountRoleType" specializations="//@modules.0/@modularizableElements.46/@generalizations.0 //@modules.0/@modularizableElements.47/@generalizations.0 //@modules.0/@modularizableElements.48/@generalizations.0 //@modules.0/@modularizableElements.49/@generalizations.0 //@modules.0/@modularizableElements.50/@generalizations.0" links="//@modules.0/@modularizableElements.43/@linksToEntities.3 //@modules.0/@modularizableElements.45/@linksToEntities.1">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="AccountRoleTypeID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Regulations"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="AccountRole">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="From" type="DATE"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="To" type="DATE"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.23"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.44"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Owner">
+      <generalizations entity="//@modules.0/@modularizableElements.44"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="JointOwner">
+      <generalizations entity="//@modules.0/@modularizableElements.44"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="ApprovedUser">
+      <generalizations entity="//@modules.0/@modularizableElements.44"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="PowerOfAttorney">
+      <generalizations entity="//@modules.0/@modularizableElements.44"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Guarantor">
+      <generalizations entity="//@modules.0/@modularizableElements.44"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="AccountTransaction" specializations="//@modules.0/@modularizableElements.56/@generalizations.0" links="//@modules.0/@modularizableElements.52/@linksToEntities.1 //@modules.0/@modularizableElements.43/@linksToEntities.2 //@modules.0/@modularizableElements.53/@linksToEntities.0 //@modules.0/@modularizableElements.55/@linksToEntities.0">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="AccountTransactionID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="EntryDate" type="DATE"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="TransactionDate" type="DATE"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="PostDate" type="DATE"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Amount" type="INTEGER"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="hasTransaction">
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.23"/>
+      <linksToEntities cardinality="ONE_TO_ONE" entity="//@modules.0/@modularizableElements.51"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="AccountTransactionStatus">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="DateTime" type="DATE"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.51"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.42"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="AccountTransactionType" links="//@modules.0/@modularizableElements.55/@linksToEntities.1">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="AccountTransactionTypeID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Description"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="hasTransactionType">
+      <linksToEntities cardinality="ONE_TO_ONE" entity="//@modules.0/@modularizableElements.51"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.54"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="FinancialTransaction" specializations="//@modules.0/@modularizableElements.64/@generalizations.0 //@modules.0/@modularizableElements.63/@generalizations.0 //@modules.0/@modularizableElements.62/@generalizations.0 //@modules.0/@modularizableElements.61/@generalizations.0 //@modules.0/@modularizableElements.60/@generalizations.0 //@modules.0/@modularizableElements.59/@generalizations.0 //@modules.0/@modularizableElements.58/@generalizations.0 //@modules.0/@modularizableElements.57/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.51"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="AccountRequestTransaction" specializations="//@modules.0/@modularizableElements.65/@generalizations.0 //@modules.0/@modularizableElements.66/@generalizations.0 //@modules.0/@modularizableElements.67/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.56"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="SecurityTransaction" specializations="//@modules.0/@modularizableElements.68/@generalizations.0 //@modules.0/@modularizableElements.69/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.56"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="MutualFundTransaction" specializations="//@modules.0/@modularizableElements.70/@generalizations.0 //@modules.0/@modularizableElements.71/@generalizations.0 //@modules.0/@modularizableElements.72/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.56"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Deposit" specializations="//@modules.0/@modularizableElements.73/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.56"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="AccountPayment">
+      <generalizations entity="//@modules.0/@modularizableElements.56"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Dividend">
+      <generalizations entity="//@modules.0/@modularizableElements.56"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Interest">
+      <generalizations entity="//@modules.0/@modularizableElements.56"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Withdrawal">
+      <generalizations entity="//@modules.0/@modularizableElements.56"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="ChangeRequest">
+      <generalizations entity="//@modules.0/@modularizableElements.57"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="InquiryRequest">
+      <generalizations entity="//@modules.0/@modularizableElements.57"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="SpecialRequest">
+      <generalizations entity="//@modules.0/@modularizableElements.57"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="SellTransaction">
+      <generalizations entity="//@modules.0/@modularizableElements.58"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="BuyTransaction">
+      <generalizations entity="//@modules.0/@modularizableElements.58"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="PurchaseTransaction">
+      <generalizations entity="//@modules.0/@modularizableElements.59"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="RedemptionTransaction">
+      <generalizations entity="//@modules.0/@modularizableElements.59"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="ExchangeTransaction">
+      <generalizations entity="//@modules.0/@modularizableElements.59"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="FinancialAccountTransaction">
+      <generalizations entity="//@modules.0/@modularizableElements.60"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="AgreementTerm" links="//@modules.0/@modularizableElements.7/@linksToEntities.2">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="AgreementTermID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="TermType"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="From" type="DATE"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Through" type="DATE"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="TermValue" type="INTEGER"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="PartyRelationship" specializations="//@modules.0/@modularizableElements.82/@generalizations.0 //@modules.0/@modularizableElements.83/@generalizations.0 //@modules.0/@modularizableElements.84/@generalizations.0 //@modules.0/@modularizableElements.85/@generalizations.0 //@modules.0/@modularizableElements.86/@generalizations.0 //@modules.0/@modularizableElements.87/@generalizations.0 //@modules.0/@modularizableElements.88/@generalizations.0" links="//@modules.0/@modularizableElements.77/@linksToEntities.0 //@modules.0/@modularizableElements.79/@linksToEntities.0">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="From" type="DATE" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Through" type="DATE"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Comments"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Status"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="PartyRelationshipType" links="//@modules.0/@modularizableElements.77/@linksToEntities.1">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="PartyRelationshipTypeID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Name"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Description"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="hasRelationshipType">
+      <linksToEntities cardinality="ONE_TO_ONE" entity="//@modules.0/@modularizableElements.75"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.76"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="PartyRole" specializations="//@modules.0/@modularizableElements.90/@generalizations.0 //@modules.0/@modularizableElements.91/@generalizations.0 //@modules.0/@modularizableElements.92/@generalizations.0 //@modules.0/@modularizableElements.93/@generalizations.0 //@modules.0/@modularizableElements.94/@generalizations.0 //@modules.0/@modularizableElements.95/@generalizations.0 //@modules.0/@modularizableElements.96/@generalizations.0" links="//@modules.0/@modularizableElements.79/@linksToEntities.1 //@modules.0/@modularizableElements.81/@linksToEntities.0 //@modules.0/@modularizableElements.116/@linksToEntities.0">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="PartyRoleID" type="INTEGER" isKey="true"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="hasPartyRelationship">
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.75"/>
+      <linksToEntities cardinality="ONE_TO_ONE" entity="//@modules.0/@modularizableElements.78"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="PartyRoleType" links="//@modules.0/@modularizableElements.81/@linksToEntities.1">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="PartyRoleTypeID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Description"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="hasPartyRoleType">
+      <linksToEntities cardinality="ONE_TO_ONE" entity="//@modules.0/@modularizableElements.78"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.80"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="SyndicatorRelationship">
+      <generalizations entity="//@modules.0/@modularizableElements.75"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="ShareholderRelationship">
+      <generalizations entity="//@modules.0/@modularizableElements.75"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="InformalRelationship">
+      <generalizations entity="//@modules.0/@modularizableElements.75"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Employment" specializations="//@modules.0/@modularizableElements.89/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.75"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="CustomerRelationship">
+      <generalizations entity="//@modules.0/@modularizableElements.75"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="OrganisationRelationship">
+      <generalizations entity="//@modules.0/@modularizableElements.75"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="SupplierRelationship">
+      <generalizations entity="//@modules.0/@modularizableElements.75"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Termination">
+      <generalizations entity="//@modules.0/@modularizableElements.85"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="PersonRole" specializations="//@modules.0/@modularizableElements.97/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.78"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="OrganisationUnit" specializations="//@modules.0/@modularizableElements.108/@generalizations.0 //@modules.0/@modularizableElements.107/@generalizations.0 //@modules.0/@modularizableElements.106/@generalizations.0 //@modules.0/@modularizableElements.105/@generalizations.0 //@modules.0/@modularizableElements.104/@generalizations.0 //@modules.0/@modularizableElements.103/@generalizations.0 //@modules.0/@modularizableElements.102/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.78"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="ControllingSyndicator">
+      <generalizations entity="//@modules.0/@modularizableElements.78"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="ParticipatingSyndicator">
+      <generalizations entity="//@modules.0/@modularizableElements.78"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Customer" specializations="//@modules.0/@modularizableElements.101/@generalizations.0 //@modules.0/@modularizableElements.100/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.78"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Shareholder">
+      <generalizations entity="//@modules.0/@modularizableElements.78"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Prospect">
+      <generalizations entity="//@modules.0/@modularizableElements.78"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Worker" specializations="//@modules.0/@modularizableElements.98/@generalizations.0 //@modules.0/@modularizableElements.99/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.90"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Employee">
+      <generalizations entity="//@modules.0/@modularizableElements.97"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Contractor">
+      <generalizations entity="//@modules.0/@modularizableElements.97"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Investor">
+      <generalizations entity="//@modules.0/@modularizableElements.94"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="LoanCustomer">
+      <generalizations entity="//@modules.0/@modularizableElements.94"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="OtherOrganisationUnit">
+      <generalizations entity="//@modules.0/@modularizableElements.91"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="OrganisationRole" specializations="//@modules.0/@modularizableElements.114/@generalizations.0 //@modules.0/@modularizableElements.113/@generalizations.0 //@modules.0/@modularizableElements.112/@generalizations.0 //@modules.0/@modularizableElements.111/@generalizations.0 //@modules.0/@modularizableElements.110/@generalizations.0 //@modules.0/@modularizableElements.109/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.91"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="InterestOrganisation">
+      <generalizations entity="//@modules.0/@modularizableElements.91"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Division">
+      <generalizations entity="//@modules.0/@modularizableElements.91"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Subsidiary">
+      <generalizations entity="//@modules.0/@modularizableElements.91"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Department">
+      <generalizations entity="//@modules.0/@modularizableElements.91"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="ParentOrganisation">
+      <generalizations entity="//@modules.0/@modularizableElements.91"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Partner">
+      <generalizations entity="//@modules.0/@modularizableElements.103"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Household">
+      <generalizations entity="//@modules.0/@modularizableElements.103"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Competitor">
+      <generalizations entity="//@modules.0/@modularizableElements.103"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Supplier">
+      <generalizations entity="//@modules.0/@modularizableElements.103"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="RegulatoryAgency">
+      <generalizations entity="//@modules.0/@modularizableElements.103"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="FinancialInstitution">
+      <generalizations entity="//@modules.0/@modularizableElements.103"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Party" links="//@modules.0/@modularizableElements.116/@linksToEntities.1 //@modules.0/@modularizableElements.118/@linksToEntities.0">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="PartyID" type="INTEGER" isKey="true"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="isPartOfParty">
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.78"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.115"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Person" links="//@modules.0/@modularizableElements.118/@linksToEntities.1">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="SocialSecurityNumber" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Birthdate" type="DATE"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Name"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Passport" type="INTEGER"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="CurrentPersonalTitle"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="CurrentSuffix"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Gender"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Height" type="INTEGER"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Weight" type="INTEGER"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="MothersMaidName"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="TotalYearsWorkExperience"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="consistsOf">
+      <linksToEntities cardinality="ONE_TO_ONE" entity="//@modules.0/@modularizableElements.115"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.117"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="AssetRoleType" links="//@modules.0/@modularizableElements.121/@linksToEntities.0">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="AssetRoleTypeID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="ApplicationDescription"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Asset" specializations="//@modules.0/@modularizableElements.123/@generalizations.0 //@modules.0/@modularizableElements.122/@generalizations.0" links="//@modules.0/@modularizableElements.121/@linksToEntities.1">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="AssetID" type="INTEGER" isKey="true"/>
+      <attributes xsi:type="moduleeer:SingleAttribute" name="Description"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:RelationshipType" name="AssetRole">
+      <attributes xsi:type="moduleeer:SingleAttribute" name="EquityValue"/>
+      <linksToEntities cardinality="ZERO_TO_MANY" entity="//@modules.0/@modularizableElements.119"/>
+      <linksToEntities cardinality="ONE_TO_ONE" entity="//@modules.0/@modularizableElements.120"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="FixedAsset" specializations="//@modules.0/@modularizableElements.126/@generalizations.0 //@modules.0/@modularizableElements.127/@generalizations.0 //@modules.0/@modularizableElements.128/@generalizations.0 //@modules.0/@modularizableElements.129/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.120"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="IntangibleAsset" specializations="//@modules.0/@modularizableElements.125/@generalizations.0 //@modules.0/@modularizableElements.124/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.120"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Security" specializations="//@modules.0/@modularizableElements.130/@generalizations.0 //@modules.0/@modularizableElements.131/@generalizations.0 //@modules.0/@modularizableElements.132/@generalizations.0">
+      <generalizations entity="//@modules.0/@modularizableElements.123"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="EstimateIncome">
+      <generalizations entity="//@modules.0/@modularizableElements.123"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Land">
+      <generalizations entity="//@modules.0/@modularizableElements.122"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="House">
+      <generalizations entity="//@modules.0/@modularizableElements.122"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Vehicle">
+      <generalizations entity="//@modules.0/@modularizableElements.122"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Livestock">
+      <generalizations entity="//@modules.0/@modularizableElements.122"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="FixedIncome">
+      <generalizations entity="//@modules.0/@modularizableElements.124"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="MoneyMarket">
+      <generalizations entity="//@modules.0/@modularizableElements.124"/>
+    </modularizableElements>
+    <modularizableElements xsi:type="moduleeer:EntityType" name="Equity">
+      <generalizations entity="//@modules.0/@modularizableElements.124"/>
+    </modularizableElements>
+  </modules>
+</moduleeer:MEERModel>

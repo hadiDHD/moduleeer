@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated moduleeer -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.module.eer.mm.moduleeer.presentation.ModuleeerModelWizardID"
+            name="%_UI_ModuleeerModelWizard_label"
+            class="org.module.eer.mm.moduleeer.presentation.ModuleeerModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ModuleeerModelFile.gif">
+         <description>%_UI_ModuleeerModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated moduleeer -->
+      <editor
+            id="org.module.eer.mm.moduleeer.presentation.ModuleeerEditorID"
+            name="%_UI_ModuleeerEditor_label"
+            icon="icons/full/obj16/ModuleeerModelFile.gif"
+            extensions="moduleeer"
+            class="org.module.eer.mm.moduleeer.presentation.ModuleeerEditor"
+            contributorClass="org.module.eer.mm.moduleeer.presentation.ModuleeerActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated moduleeer -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.module.eer.mm.moduleeer.subsystem.presentation.SubsystemModelWizardID"
+            name="%_UI_SubsystemModelWizard_label"
+            class="org.module.eer.mm.moduleeer.subsystem.presentation.SubsystemModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SubsystemModelFile.gif">
+         <description>%_UI_SubsystemModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated moduleeer -->
+      <editor
+            id="org.module.eer.mm.moduleeer.subsystem.presentation.SubsystemEditorID"
+            name="%_UI_SubsystemEditor_label"
+            icon="icons/full/obj16/SubsystemModelFile.gif"
+            extensions="subsystem"
+            class="org.module.eer.mm.moduleeer.subsystem.presentation.SubsystemEditor"
+            contributorClass="org.module.eer.mm.moduleeer.subsystem.presentation.SubsystemActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated moduleeer -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.module.eer.mm.moduleeer.procedure.presentation.ProcedureModelWizardID"
+            name="%_UI_ProcedureModelWizard_label"
+            class="org.module.eer.mm.moduleeer.procedure.presentation.ProcedureModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ProcedureModelFile.gif">
+         <description>%_UI_ProcedureModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated moduleeer -->
+      <editor
+            id="org.module.eer.mm.moduleeer.procedure.presentation.ProcedureEditorID"
+            name="%_UI_ProcedureEditor_label"
+            icon="icons/full/obj16/ProcedureModelFile.gif"
+            extensions="procedure"
+            class="org.module.eer.mm.moduleeer.procedure.presentation.ProcedureEditor"
+            contributorClass="org.module.eer.mm.moduleeer.procedure.presentation.ProcedureActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

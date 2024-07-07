@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="moduleeer" nsURI="http://moduleeer/1.0" nsPrefix="moduleeer">
+  <eClassifiers xsi:type="ecore:EClass" name="MEERModel" eSuperTypes="#//NameElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subsystems" upperBound="-1"
+        eType="#//subsystem/ModuleSubsystem" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" lowerBound="1"
+        upperBound="-1" eType="#//Module" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true" eSuperTypes="#//ModularizableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessElement" upperBound="-1"
+        eType="#//procedure/AccessElement" eOpposite="#//procedure/AccessElement/entity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isWeak" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//ModularizableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//procedure/Event" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modularizableElements"
+        lowerBound="1" upperBound="-1" eType="#//ModularizableElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NameElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityType" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generalizations" upperBound="-1"
+        eType="#//Generalization" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specializations" upperBound="-1"
+        eType="#//Generalization" eOpposite="#//Generalization/entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="#//LinkToEntity" eOpposite="#//LinkToEntity/entity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationshipType" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generalizes" upperBound="-1"
+        eType="#//RelationshipType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linksToEntities" lowerBound="2"
+        upperBound="2" eType="#//LinkToEntity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregations" upperBound="-1"
+        eType="#//Aggregation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associations" upperBound="-1"
+        eType="#//LinkToEntity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SingleAttribute" eSuperTypes="#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AttributeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AttributeType">
+    <eLiterals name="STRING"/>
+    <eLiterals name="INTEGER" value="1"/>
+    <eLiterals name="BOOLEAN" value="2"/>
+    <eLiterals name="DATE" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CardinalityType">
+    <eLiterals name="ZERO_TO_ONE"/>
+    <eLiterals name="ZERO_TO_MANY" value="1"/>
+    <eLiterals name="ONE_TO_ONE" value="2"/>
+    <eLiterals name="ONE_TO_MANY" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModularizableElement" abstract="true"
+      eSuperTypes="#//NameElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" abstract="true" eSuperTypes="#//NameElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeAttribute" eSuperTypes="#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" abstract="true" eSuperTypes="#//NameElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cardinality" eType="#//CardinalityType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="completeness" eType="#//CompletenessType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DisjointnessType">
+    <eLiterals name="OVERLAPPING"/>
+    <eLiterals name="DISJOINT" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CompletenessType">
+    <eLiterals name="PARTIAL"/>
+    <eLiterals name="TOTAL" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Generalization" eSuperTypes="#//NameElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//EntityType"
+        eOpposite="#//EntityType/specializations"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="completeness" eType="#//CompletenessType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="disjointness" eType="#//DisjointnessType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Aggregation" eSuperTypes="#//Link">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//RelationshipType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkToEntity" eSuperTypes="#//Link">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+        eType="#//EntityType" eOpposite="#//EntityType/links"/>
+  </eClassifiers>
+  <eSubpackages name="subsystem" nsURI="http://moduleeer/subsystem/1.0" nsPrefix="subsystem">
+    <eClassifiers xsi:type="ecore:EClass" name="ModuleSubsystem" eSuperTypes="#//NameElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="procedures" upperBound="-1"
+          eType="#//procedure/Procedure"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="procedure" nsURI="http://moduleeer/procedure/1.0" nsPrefix="procedure">
+    <eClassifiers xsi:type="ecore:EClass" name="Procedure" eSuperTypes="#//ModularizableElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="procedureType" eType="#//procedure/ProcedureType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="event" eType="#//procedure/Event"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="accessElements" upperBound="-1"
+          eType="#//procedure/AccessElement" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ProcedureType">
+      <eLiterals name="PRIVATE"/>
+      <eLiterals name="PUBLIC" value="1"/>
+      <eLiterals name="REFERENCIAL_INTEGRITY" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//NameElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="integrityProcedures"
+          upperBound="-1" eType="#//procedure/Procedure"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AccessElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+          eType="#//Element" eOpposite="#//Element/accessElement"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessType" eType="#//procedure/OperationType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="OperationType">
+      <eLiterals name="Read"/>
+      <eLiterals name="Read_Write" value="1"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

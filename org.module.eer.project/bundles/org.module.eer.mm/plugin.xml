@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated moduleeer -->
+      <package
+            uri="http://moduleeer/1.0"
+            class="org.module.eer.mm.moduleeer.ModuleeerPackage"
+            genModel="model/moduleeer.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated moduleeer -->
+      <package
+            uri="http://moduleeer/subsystem/1.0"
+            class="org.module.eer.mm.moduleeer.subsystem.SubsystemPackage"
+            genModel="model/moduleeer.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated moduleeer -->
+      <package
+            uri="http://moduleeer/procedure/1.0"
+            class="org.module.eer.mm.moduleeer.procedure.ProcedurePackage"
+            genModel="model/moduleeer.genmodel"/>
+   </extension>
+
+</plugin>
